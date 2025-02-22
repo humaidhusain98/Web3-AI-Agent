@@ -1,7 +1,5 @@
 # Web3-AI-Agent
-This repository contains code to build a Web3 Artificial Intelligence Agent that uses different tools defined to take input , fetch data using the tools and generate a response from an llm model.
-
----
+This repository contains a Web3-AI-Agent which can fetch realtime blockchain data with the help of set of tools defined which the Agent can use to query the Blockchain and fetch real time data. The Agent is built in a generic way through which it can work with different LLMs like deepseek, llama, Gemini, ChatGPT etc to solve queries. The Agent works on analyzing the query, reason out which Tool needs to be used, uses the tool and gets the data, reasons out if the answer is accurate for the query and repeats this cycle till the Agent is convinced that the current Answer is the correct answer.It works on the Reason and Action (React) Model. It has different blockchain http providers available to query real time data from the blockchain using those providers. The Agent has different tools through which it gets real time data from the blockchain using the http providers defined. It utilizes the web3.py package to query the blockchain. Built on fastapi, it can cater to different web3 AI applications. It leverages both LLMs installed locally using Ollama as well as LLMs like Gemini and ChatGPT through API Keys
 
 ## 🛠 Features
 - Contains multiple LLM Models like chat gpt-4,gpt-4o-mini, deepseek-r1:latest, deepseek-coder:latest, deepseek-llm:7b , Google gemini-1.5-pro,gemini-1.5-flash,gemini-2.0-flash,gemini-2.0-flash-lite,llama2-stable:13b, llama3:latest, llama3.3:latest
@@ -11,19 +9,19 @@ This repository contains code to build a Web3 Artificial Intelligence Agent that
 - Agent works on analyzing the query, reason out which Tool needs to be used, uses the tool and gets the data, reasons out if the answer is accurate for the query and repeats this cycle till the Agent is convinced he has got the current Answer.
 - It supports Ethereum Mainnet, Polygon Mainnet, Arbitrum Mainnet, Zksync Mainnet, Optimism Mainnet , Fantom Opera Mainnet, Mantle Mainnet and Base Mainnet networks currently to fetch latest current block and native wallet balance. 
 ---
+
 ## Table of Contents
 
 - [Installation Instructions](#installation-instructions)
 - [Start Instructions](#start-instructions)
-- [All Endpoints ](#all-endpoints)
+- [API Endpoints ](#all-endpoints)
 	- [1. Server Check API](#1-server-check-api)
-	- [2. Models : GPT 4o MINI API](#2-models--gpt-4o-mini-api)
- 	- [3. Models : GEMINI 1.5 PRO API](#3-models--gemini-15-pro-api)
-  	- [4. RAG Embeddings Generation from Text File](#4-rag-embeddings-generation-from-text-file)
-  	- [5. RAG Retrieval From Existing Chroma DB Vector Store Generated Previously](#5-rag-retrieval-from-existing-chroma-db-vector-store-generated-previously)
-  	- [6. Generate Response From GPT-4-MINI MODEL after Data Retrieval From RAG Vector Store](#6-generate-response-from-gpt-4-mini-model-after-data-retrieval-from-rag-vector-store)
+	- [2. Ask Model API ](#2-models--gpt-4o-mini-api)
  	
+
+
 ---
+
 
 ## 🔨 Tools 
 LLMs are trained on previous data and so they are not able to fetch real time data. We can create specific agents using LLMs which have a set of tools to get real time data and perform a set of specific tasks the agent specializes. Our agent is a Web3 specific agent so it will have tools to query the blockchain and get data in real time. Below are the list of Tools the agent currently has:
@@ -32,6 +30,29 @@ LLMs are trained on previous data and so they are not able to fetch real time da
 - Search Wikipedia Tool : Useful for when the Agent needs to know information about a topic. The tool uses the Wikipedia package to get current data from Wikipedia. It requests summary of 2 lines on the input it recieves from the Agent
 - Get Current Block Tool : Useful for when the Agent needs to know the current block number of a network.It supports 'ethereum','polygon','arbitrum','zksync','optimism','fantom','mantle','base' networks as input and returns a string output "The Current Block number for {networkName} ({chainId}) is {blockNumber}" based on network.
 - Wallet Balance Tool : Useful for when when the Agent needs to know the balance of a address on a specific network.It takes in a string with network as input as the first parameter and the second parameter is the wallet address provided seperated by a comma. If no network is provided , it uses the Ethereum network.
+
+## Packages
+- FastAPI
+- LangChain
+- Web3.py
+- python-dotenv
+---
+
+## LLM Models
+- gpt-4:
+- gpt-4o-mini
+- deepseek-r1:latest
+- deepseek-coder:latest
+- deepseek-llm:7b
+- gemini-1.5-pro
+- gemini-1.5-flash
+- gemini-2.0-flash
+- gemini-2.0-flash-lite
+- llama2-stable:13b
+- llama3:latest
+- llama3.3:latest
+---
+
 
 
 ## Installation Instructions

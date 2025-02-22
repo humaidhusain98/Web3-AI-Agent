@@ -31,12 +31,6 @@ LLMs are trained on previous data and so they are not able to fetch real time da
 - Get Current Block Tool : Useful for when the Agent needs to know the current block number of a network.It supports 'ethereum','polygon','arbitrum','zksync','optimism','fantom','mantle','base' networks as input and returns a string output "The Current Block number for {networkName} ({chainId}) is {blockNumber}" based on network.
 - Wallet Balance Tool : Useful for when when the Agent needs to know the balance of a address on a specific network.It takes in a string with network as input as the first parameter and the second parameter is the wallet address provided seperated by a comma. If no network is provided , it uses the Ethereum network.
 
-## Packages
-- FastAPI
-- LangChain
-- Web3.py
-- python-dotenv
----
 
 ## LLM Models
 - gpt-4:

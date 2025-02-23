@@ -189,7 +189,7 @@ The /ask api takes in the query (prompt) and llmModel in the request body and ge
 ```
 http://localhost:8000/ask
 ```
-#### Example 1: query = "What is the time now" , llmModel="gemini-1.5-flash" and tool used = Time 
+#### Example 1: query = "What is the time now" and llmModel="gemini-1.5-flash" 
 **Curl Request**
 ```curl
 curl --location 'http://localhost:8000/ask' \
@@ -212,7 +212,7 @@ curl --location 'http://localhost:8000/ask' \
 }
 ```
 
-#### Example 2: query = "What is the time now", llmModel="gpt-4o-mini" and tool used = Time 
+#### Example 2: query = "What is the time now" and llmModel="gpt-4o-mini" 
 **Curl Request**
 ```curl
 curl --location 'http://localhost:8000/ask' \
@@ -235,7 +235,7 @@ curl --location 'http://localhost:8000/ask' \
 }
 ```
 
-#### Example 3: query = "What is current block of polygon", llmModel="gpt-4o-mini" and tool used = Get Current Block 
+#### Example 3: query = "What is current block of polygon" and llmModel="gpt-4o-mini"
 **Curl Request**
 ```curl
 curl --location 'http://localhost:8000/ask' \
@@ -258,13 +258,128 @@ curl --location 'http://localhost:8000/ask' \
 }
 ```
 
-#### Example 4: query = "What is the time now" and llmModel="gpt-4o-mini"
+#### Example 4: query = "What is current block of Optimism" and llmModel="llama3"
 **Curl Request**
 ```curl
 curl --location 'http://localhost:8000/ask' \
 --header 'Content-Type: application/json' \
 --data '{
-    "query":"What is the time now",
+    "query":"What is current block of Optimism",
+    "llmModel":"llama3"
+}'
+``` 
+
+**Response**
+```json
+{
+    "httpCode": 200,
+    "msg": "Successfully Generated Response",
+    "data": {
+        "input": "What is current block of Optimism",
+        "output": "The current block number of Optimism is 21910949."
+    }
+}
+```
+
+#### Example 5: query = "What is the current block of base mainnet" and llmModel="gemini-2.0-flash"
+**Curl Request**
+```curl
+curl --location 'http://localhost:8000/ask' \
+--header 'Content-Type: application/json' \
+--data '{
+    "query":"What is current block of base mainnet",
+    "llmModel":"gemini-2.0-flash"
+}'
+``` 
+
+**Response**
+```json
+{
+    "httpCode": 200,
+    "msg": "Successfully Generated Response",
+    "data": {
+        "input": "What is current block of base mainnet",
+        "output": "26681533"
+    }
+}
+```
+
+#### Example 6: query = "What is the current block of base mainnet" and llmModel="deepseek-r1"
+**Curl Request**
+```curl
+curl --location 'http://localhost:8000/ask' \
+--header 'Content-Type: application/json' \
+--data '{
+    "query":"What is current block of mantle mainnet",
+    "llmModel":"deepseek-r1"
+}'
+``` 
+
+**Response**
+```json
+{
+    "httpCode": 200,
+    "msg": "Successfully Generated Response",
+    "data": {
+        "input": "What is current block of mantle mainnet",
+        "output": "The current block number for the Mantle network's mainnet is 21911088."
+    }
+}
+```
+
+#### Example 7: query = "When did Barack Obama die" and llmModel="gemini-1.5-flash"
+**Curl Request**
+```curl
+curl --location 'http://localhost:8000/ask' \
+--header 'Content-Type: application/json' \
+--data '{
+    "query":"When did Barack Obama die",
+    "llmModel":"gemini-1.5-flash"
+}'
+``` 
+
+**Response**
+```json
+{
+    "httpCode": 200,
+    "msg": "Successfully Generated Response",
+    "data": {
+        "input": "When did Barack Obama die",
+        "output": "Barack Obama is still alive, so he has not died."
+    }
+}
+```
+
+#### Example 8: query = "When did Barack Obama die" and llmModel="gemini-1.5-flash"
+**Curl Request**
+```curl
+curl --location 'http://localhost:8000/ask' \
+--header 'Content-Type: application/json' \
+--data '{
+    "query":"When did Barack Obama die",
+    "llmModel":"gemini-1.5-flash"
+}'
+``` 
+
+**Response**
+```json
+{
+    "httpCode": 200,
+    "msg": "Successfully Generated Response",
+    "data": {
+        "input": "When did Barack Obama die",
+        "output": "Barack Obama is still alive, so he has not died."
+    }
+}
+```
+
+#### Example 9: query = "What is the balance of 0x415c8893D514F9BC5211d36eEDA4183226b84AA7 on ethereum network" and llmModel="gpt-4o-mini"
+**Curl Request**
+```curl
+curl --location 'http://localhost:8000/ask' \
+--header 'Content-Type: application/json' \
+--data '{
+    "query":"What is the balance of 0x415c8893D514F9BC5211d36eEDA4183226b84AA7 on ethereum network",
     "llmModel":"gpt-4o-mini"
 }'
 ``` 
@@ -275,19 +390,19 @@ curl --location 'http://localhost:8000/ask' \
     "httpCode": 200,
     "msg": "Successfully Generated Response",
     "data": {
-        "input": "What is the time now",
-        "output": "The current time is 07:25 PM."
+        "input": "What is the balance of 0x415c8893D514F9BC5211d36eEDA4183226b84AA7 on ethereum network",
+        "output": "The balance of the wallet address 0x415c8893D514F9BC5211d36eEDA4183226b84AA7 on the Ethereum network is 47.263273342183228043 Ether."
     }
 }
 ```
 
-#### Example 5: query = "What is the time now" and llmModel="gpt-4o-mini"
+#### Example 10: query = "What is the balance of 0x415c8893D514F9BC5211d36eEDA4183226b84AA7 on ethereum network" and llmModel="gpt-4o-mini"
 **Curl Request**
 ```curl
 curl --location 'http://localhost:8000/ask' \
 --header 'Content-Type: application/json' \
 --data '{
-    "query":"What is the time now",
+    "query":"What is the balance of 0x415c8893D514F9BC5211d36eEDA4183226b84AA7 on ethereum network",
     "llmModel":"gpt-4o-mini"
 }'
 ``` 
@@ -298,11 +413,8 @@ curl --location 'http://localhost:8000/ask' \
     "httpCode": 200,
     "msg": "Successfully Generated Response",
     "data": {
-        "input": "What is the time now",
-        "output": "The current time is 07:25 PM."
+        "input": "What is the balance of 0x415c8893D514F9BC5211d36eEDA4183226b84AA7 on ethereum network",
+        "output": "The balance of the wallet address 0x415c8893D514F9BC5211d36eEDA4183226b84AA7 on the Ethereum network is 47.263273342183228043 Ether."
     }
 }
 ```
-
-
-

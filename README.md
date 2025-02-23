@@ -189,22 +189,120 @@ The /ask api takes in the query (prompt) and llmModel in the request body and ge
 ```
 http://localhost:8000/ask
 ```
-
-**Curl Example**
+#### Example 1: query = "What is the time now" , llmModel="gemini-1.5-flash" and tool used = Time 
+**Curl Request**
 ```curl
 curl --location 'http://localhost:8000/ask' \
 --header 'Content-Type: application/json' \
 --data '{
-	"prompt": "What is 81 divided by 9"
+    "query":"What is the time now",
+    "llmModel":"gemini-1.5-flash"
 }'
 ``` 
 
-**Example Response**
+**Response**
 ```json
 {
     "httpCode": 200,
     "msg": "Successfully Generated Response",
-    "data": "81 divided by 9 is 9"
+    "data": {
+        "input": "What is the time now",
+        "output": "07:09 PM"
+    }
 }
 ```
+
+#### Example 2: query = "What is the time now", llmModel="gpt-4o-mini" and tool used = Time 
+**Curl Request**
+```curl
+curl --location 'http://localhost:8000/ask' \
+--header 'Content-Type: application/json' \
+--data '{
+    "query":"What is the time now",
+    "llmModel":"gpt-4o-mini"
+}'
+``` 
+
+**Response**
+```json
+{
+    "httpCode": 200,
+    "msg": "Successfully Generated Response",
+    "data": {
+        "input": "What is the time now",
+        "output": "The current time is 07:25 PM."
+    }
+}
+```
+
+#### Example 3: query = "What is current block of polygon", llmModel="gpt-4o-mini" and tool used = Get Current Block 
+**Curl Request**
+```curl
+curl --location 'http://localhost:8000/ask' \
+--header 'Content-Type: application/json' \
+--data '{
+    "query":"What is current block of polygon",
+    "llmModel":"gpt-4o-mini"
+}'
+``` 
+
+**Response**
+```json
+{
+    "httpCode": 200,
+    "msg": "Successfully Generated Response",
+    "data": {
+        "input": "What is current block of polygon",
+        "output": "The current block of the Polygon network is 68196058."
+    }
+}
+```
+
+#### Example 4: query = "What is the time now" and llmModel="gpt-4o-mini"
+**Curl Request**
+```curl
+curl --location 'http://localhost:8000/ask' \
+--header 'Content-Type: application/json' \
+--data '{
+    "query":"What is the time now",
+    "llmModel":"gpt-4o-mini"
+}'
+``` 
+
+**Response**
+```json
+{
+    "httpCode": 200,
+    "msg": "Successfully Generated Response",
+    "data": {
+        "input": "What is the time now",
+        "output": "The current time is 07:25 PM."
+    }
+}
+```
+
+#### Example 5: query = "What is the time now" and llmModel="gpt-4o-mini"
+**Curl Request**
+```curl
+curl --location 'http://localhost:8000/ask' \
+--header 'Content-Type: application/json' \
+--data '{
+    "query":"What is the time now",
+    "llmModel":"gpt-4o-mini"
+}'
+``` 
+
+**Response**
+```json
+{
+    "httpCode": 200,
+    "msg": "Successfully Generated Response",
+    "data": {
+        "input": "What is the time now",
+        "output": "The current time is 07:25 PM."
+    }
+}
+```
+
+
 

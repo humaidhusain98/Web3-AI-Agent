@@ -99,9 +99,22 @@ Create a .env file in the root directory and add the details given in the .env.e
 <br />
 1. OpenAI API Key: Go to https://platform.openai.com/ and generate an API key
 2. Gemini API Key: Go to https://aistudio.google.com/app/apikey and generate an API key
+3. Blockchain Providers : You can fetch http blockchain providers from anywhere and fill the details. You can even go to Alchemy and fetch all the http providers for different networks
 ```env
 OPENAI_API_KEY=
 GEMINI_API_KEY=
+
+#PROVIDERS OF DIFFERENT BLOCKCHAIN FETCHED FROM ALCHEMY
+PROVIDER_ETH_MAINNET_URL=
+PROVIDER_POLYGON_POS_MAINNET_URL=
+PROVIDER_POLYGON_zKEVM_MAINNET_URL=
+PROVIDER_ARBITRUM_MAINNET_URL=
+PROVIDER_ARBITRUM_NOVA_MAINNET_URL=
+PROVIDER_ZKSYNC_MAINNET_URL=
+PROVIDER_OPTIMISM_MAINNET_URL=
+PROVIDER_FANTOM_OPERA_MAINNET_URL=
+PROVIDER_MANTLE_MAINNET_URL=
+PROVIDER_BASE_MAINNET_URL=
 ```
 ### Running Locally with Ollama
 If using locally hosted LLMs like deepseek and llama models, install Ollama and ensure the required models are available:
@@ -137,7 +150,7 @@ Use the following command in root folder terminal to run the production server
 fastapi run main.py
 ```
 
-## All Endpoints
+## 🚀 Usage
 
 ### 1. Server Check API
 
@@ -162,7 +175,7 @@ It will display the following JSON Response
 
 ### 2. Ask API 
 
-This api exposes OpenAI's chatgpt-4o-mini model to be invoked and consumed by Applications. It takes the prompt in the request body and generates a response by the gpt-4o-mini model and returns back the results.
+The /ask api takes in the query (prompt) and llmModel in the request body and generates an accurate response. It works on the  Reason + Action (ReAct) model to understand, fetch, validate, and iterate on data queries with the help of the llm model specified in the request body to generate the response. The Agent thinks till it gets the final answer
 
 **HTTP Method Type** : POST
 

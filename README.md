@@ -304,7 +304,7 @@ curl --location 'http://localhost:8000/ask' \
 }
 ```
 
-#### Example 6: query = "What is the current block of base mainnet" and llmModel="deepseek-r1"
+#### Example 6: query = "What is current block of mantle mainnet" and llmModel="deepseek-r1"
 **Curl Request**
 ```curl
 curl --location 'http://localhost:8000/ask' \
@@ -350,14 +350,14 @@ curl --location 'http://localhost:8000/ask' \
 }
 ```
 
-#### Example 8: query = "When did Barack Obama die" and llmModel="gemini-1.5-flash"
+#### Example 8: query = "Who is Nelson Mandela" and llmModel="deepseek-llm:7b"
 **Curl Request**
 ```curl
 curl --location 'http://localhost:8000/ask' \
 --header 'Content-Type: application/json' \
 --data '{
-    "query":"When did Barack Obama die",
-    "llmModel":"gemini-1.5-flash"
+    "query":"Who is Nelson Mandela",
+    "llmModel":"deepseek-llm:7b"
 }'
 ``` 
 
@@ -367,8 +367,8 @@ curl --location 'http://localhost:8000/ask' \
     "httpCode": 200,
     "msg": "Successfully Generated Response",
     "data": {
-        "input": "When did Barack Obama die",
-        "output": "Barack Obama is still alive, so he has not died."
+        "input": "Who is Nelson Mandela",
+        "output": "Nelson Mandela was a South African anti-apartheid activist and politician who served as the first president of South Africa from 1994 to 1999. He was a key figure in the fight against apartheid and spent 27 years in prison for his activism before becoming the country's first black head of state."
     }
 }
 ```
@@ -396,13 +396,13 @@ curl --location 'http://localhost:8000/ask' \
 }
 ```
 
-#### Example 10: query = "What is the balance of 0x415c8893D514F9BC5211d36eEDA4183226b84AA7 on ethereum network" and llmModel="gpt-4o-mini"
+#### Example 10: query = "What is the balance of 0x7a5Aa13a31155315B13cbFE163fc8222Ea1D8657 on base network" and llmModel="gpt-4o-mini"
 **Curl Request**
 ```curl
 curl --location 'http://localhost:8000/ask' \
 --header 'Content-Type: application/json' \
 --data '{
-    "query":"What is the balance of 0x415c8893D514F9BC5211d36eEDA4183226b84AA7 on ethereum network",
+    "query":"What is the balance of 0x7a5Aa13a31155315B13cbFE163fc8222Ea1D8657 on base network",
     "llmModel":"gpt-4o-mini"
 }'
 ``` 
@@ -413,8 +413,77 @@ curl --location 'http://localhost:8000/ask' \
     "httpCode": 200,
     "msg": "Successfully Generated Response",
     "data": {
-        "input": "What is the balance of 0x415c8893D514F9BC5211d36eEDA4183226b84AA7 on ethereum network",
-        "output": "The balance of the wallet address 0x415c8893D514F9BC5211d36eEDA4183226b84AA7 on the Ethereum network is 47.263273342183228043 Ether."
+        "input": "What is the balance of 0x7a5Aa13a31155315B13cbFE163fc8222Ea1D8657 on base network",
+        "output": "The balance of 0x7a5Aa13a31155315B13cbFE163fc8222Ea1D8657 on the Base network is 0.010830224416519167 Ether."
+    }
+}
+```
+
+#### Example 11: query = "Fetch Optimism network balance of 0xeCDecb868503Ea7D81cb0573e367b536A820Af4E" and llmModel="gemini-2.0-flash"
+**Curl Request**
+```curl
+curl --location 'http://localhost:8000/ask' \
+--header 'Content-Type: application/json' \
+--data '{
+    "query":"Fetch Optimism network balance of 0xeCDecb868503Ea7D81cb0573e367b536A820Af4E ",
+    "llmModel":"gemini-2.0-flash"
+}'
+``` 
+
+**Response**
+```json
+{
+    "httpCode": 200,
+    "msg": "Successfully Generated Response",
+    "data": {
+        "input": "What is the balance of 0xeCDecb868503Ea7D81cb0573e367b536A820Af4E on Optimism network",
+        "output": "The balance of 0xeCDecb868503Ea7D81cb0573e367b536A820Af4E on Optimism network is 0.069785790710600851 Ether"
+    }
+}
+```
+
+#### Example 12: query = "Fetch Optimism network balance of 0xeCDecb868503Ea7D81cb0573e367b536A820Af4E" and llmModel="llama3"
+**Curl Request**
+```curl
+curl --location 'http://localhost:8000/ask' \
+--header 'Content-Type: application/json' \
+--data '{
+    "query":"Who is John Wick",
+    "llmModel":"llama3"
+}'
+``` 
+
+**Response**
+```json
+{
+    "httpCode": 200,
+    "msg": "Successfully Generated Response",
+    "data": {
+        "input": "Who is John Wick",
+        "output": "John Wick is an American neo-noir crime action film series and media franchise created by Derek Kolstad, centered on the titular character portrayed by actor Keanu Reeves."
+    }
+}
+```
+
+#### Example 12: query = "Fetch Optimism network balance of 0xeCDecb868503Ea7D81cb0573e367b536A820Af4E" and llmModel="deepseek-llm:7b"
+**Curl Request**
+```curl
+curl --location 'http://localhost:8000/ask' \
+--header 'Content-Type: application/json' \
+--data '{
+    "query":"Who is Nelson Mandela",
+    "llmModel":"deepseek-llm:7b"
+}'
+``` 
+
+**Response**
+```json
+{
+    "httpCode": 200,
+    "msg": "Successfully Generated Response",
+    "data": {
+        "input": "Who is Nelson Mandela",
+        "output": "Nelson Mandela was a South African anti-apartheid activist and politician who served as the first president of South Africa from 1994 to 1999. He was a key figure in the fight against apartheid and spent 27 years in prison for his activism before becoming the country's first black head of state."
     }
 }
 ```
